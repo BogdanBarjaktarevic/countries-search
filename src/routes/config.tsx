@@ -6,5 +6,6 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     loader: countriesLoader,
+    errorElement: <div>Something went wrong</div>,
   },
 ]);

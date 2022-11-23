@@ -14,6 +14,19 @@ export const getAllCountries = async (): Promise<CountriesModel[]> => {
     return response.data;
   } catch (error: any) {
     console.error(error);
-    throw new Error(error);
+    return [];
+  }
+};
+
+export const getCountryByName = async (
+  name: string
+): Promise<CountriesModel[]> => {
+  try {
+    const response: AxiosResponse<CountriesModel[], typeof countriesApi> =
+      await countriesApi.get(`/name/${name}`);
+    return response.data;
+  } catch (error: any) {
+    console.error(error);
+    return [];
   }
 };
