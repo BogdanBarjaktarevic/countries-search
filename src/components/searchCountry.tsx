@@ -8,10 +8,6 @@ const SearchCountry = () => {
   const countryQuery = searchParams.get("country") || "";
 
   useEffect(() => {
-    if (!countryQuery) {
-      setSearchParams({});
-    }
-
     (document.getElementById("search-country") as HTMLInputElement).value =
       countryQuery;
   }, [countryQuery]);
