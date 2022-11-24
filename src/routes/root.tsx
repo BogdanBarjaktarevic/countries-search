@@ -21,7 +21,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 const Root = () => {
   return (
-    <div className="bg-lightGray">
+    <div className="bg-lightGray dark:bg-darkBlueBackground">
       <Header />
       <div className="px-5">
         <SearchCountry />

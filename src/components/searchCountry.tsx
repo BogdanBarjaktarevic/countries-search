@@ -34,13 +34,13 @@ const SearchCountry = () => {
             <IonIcon
               icon={searchOutline}
               size="small"
-              className="text-darkGray"
+              className="text-darkGray dark:text-white"
             />
           </div>
           <input
             type="search"
             id="search-country"
-            className="block w-full p-4 pl-10 text-sm text-gray-900 shadow-lg rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full p-4 pl-10 text-sm text-gray-900 shadow-lg rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:bg-darkBlueElements dark:placeholder-white"
             placeholder="Search for a country..."
             required
             onChange={handleOnChange}

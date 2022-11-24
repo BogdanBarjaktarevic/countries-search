@@ -21,7 +21,7 @@ const Countries = () => {
       {countries.map((country) => (
         <article
           key={country.cca2}
-          className="text-darkBlueText bg-white shadow-md rounded-md"
+          className="text-darkBlueText bg-white shadow-md rounded-md dark:bg-darkBlueElements dark:text-white"
         >
           <img src={country.flags.svg} className="rounded-md" />
           <div className="ml-6 mt-9 mb-11">
