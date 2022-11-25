@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { CountriesModel } from "../../types/countries.types";
+import { CountriesModel, CountryModel } from "../../types/countries.types";
 
 const baseURL = "https://restcountries.com/v3.1";
 
@@ -7,10 +7,22 @@ const countriesApi = axios.create({
   baseURL: baseURL,
 });
 
-export const getAllCountries = async (): Promise<CountriesModel[]> => {
+export const getCountries = async (
+  name?: string,
+  filter?: string
+): Promise<CountriesModel[]> => {
+  let url: string;
+
+  if (name) {
+    url = `/name/${name}`;
+  } else if (filter) {
+    url = `/region/${filter}`;
+  } else {
+    url = "/all";
+  }
   try {
     const response: AxiosResponse<CountriesModel[], typeof countriesApi> =
-      await countriesApi.get("/all");
+      await countriesApi.get(url);
     return response.data;
   } catch (error: any) {
     console.error(error);
@@ -18,15 +30,15 @@ export const getAllCountries = async (): Promise<CountriesModel[]> => {
   }
 };
 
-export const getCountryByName = async (
-  name: string
-): Promise<CountriesModel[]> => {
+export const getCountry = async (
+  id: string | undefined
+): Promise<CountryModel> => {
   try {
-    const response: AxiosResponse<CountriesModel[], typeof countriesApi> =
-      await countriesApi.get(`/name/${name}`);
-    return response.data;
+    const response: AxiosResponse<CountryModel[], typeof countriesApi> =
+      await countriesApi.get(`/alpha/${id}`);
+    return response.data[0];
   } catch (error: any) {
     console.error(error);
-    return [];
+    throw new Error(error);
   }
 };
