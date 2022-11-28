@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/countries/:countryId",
     element: <Layout />,
+    errorElement: <div>Something went wrong</div>,
     children: [{ index: true, element: <Country />, loader: countryLoader }],
   },
 ]);

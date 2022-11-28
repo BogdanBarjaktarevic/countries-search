@@ -5,7 +5,9 @@ const Layout = () => {
   return (
     <div className="bg-lightGray dark:bg-darkBlueBackground pb-8 min-h-screen">
       <Header />
-      <Outlet />
+      <div className="lg:container lg:m-auto">
+        <Outlet />
+      </div>
     </div>
   );
 };

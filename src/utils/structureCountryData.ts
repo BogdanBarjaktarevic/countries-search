@@ -1,7 +1,9 @@
 import {
   CountryModel,
+  CountriesModel,
   StructuredCountryModel,
 } from "./../types/countries.types";
+
 export const structureCountryData = (
   country: CountryModel
 ): StructuredCountryModel => {
@@ -25,4 +27,12 @@ export const structureCountryData = (
     languages,
     nativeName,
   };
+};
+
+export const structureBorderCountriesData = (
+  borderCountries: CountriesModel[]
+) => {
+  return borderCountries.map((borderCountry) => {
+    return { name: borderCountry.name.common, cca2: borderCountry.cca2 };
+  });
 };

@@ -42,3 +42,18 @@ export const getCountry = async (
     throw new Error(error);
   }
 };
+
+export const getBorderCountries = async (
+  ids: string[]
+): Promise<CountriesModel[]> => {
+  const borderCountiresIds = ids.join(",");
+
+  try {
+    const response: AxiosResponse<CountriesModel[], typeof countriesApi> =
+      await countriesApi.get(`/alpha?codes=${borderCountiresIds}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};

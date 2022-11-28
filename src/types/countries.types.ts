@@ -53,3 +53,13 @@ export interface StructuredCountryModel {
   languages: string[];
   nativeName: string;
 }
+
+export interface StructuredBorderCountriesModel {
+  name: string;
+  cca2: string;
+}
+
+export interface CountryLoader {
+  country: StructuredCountryModel;
+  borderCountries: StructuredBorderCountriesModel[];
+}
