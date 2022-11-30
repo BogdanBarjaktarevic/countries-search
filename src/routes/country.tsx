@@ -46,7 +46,7 @@ const Country = () => {
   return (
     <div className="px-6 text-darkBlueText dark:text-white">
       <div
-        className="flex items-center gap-2 py-1.5 px-6 shadow-md mb-20 mt-12 max-w-max dark:bg-darkBlueElements dark:lg:hover:bg-darkBlueBackground cursor-pointer"
+        className="flex items-center gap-2 py-1.5 px-6 shadow-md mb-20 mt-12 max-w-max bg-white dark:bg-darkBlueElements dark:lg:hover:bg-darkBlueBackground cursor-pointer"
         onClick={() => navigate(-1)}
       >
         <IonIcon icon={arrowBackOutline} size="small" />
@@ -86,7 +86,7 @@ const Country = () => {
           </div>
 
           {country.borders && (
-            <div className="flex flex-col gap-4 mt-8 lg:flex-row">
+            <div className="flex flex-col gap-4 mt-8 lg:flex-row lg:items-center">
               <h3 className="font-semibold text-lg lg:text-base">
                 Border Countries:{" "}
               </h3>

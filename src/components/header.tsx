@@ -7,7 +7,7 @@ const Header = () => {
   const { handleSetTheme, theme } = useSetTheme();
 
   return (
-    <header className="flex justify-between items-center px-4 py-10 text-darkBlueText shadow-md mb-6 dark:text-white dark:bg-darkBlueElements lg:py-5">
+    <header className="flex justify-between items-center px-4 py-10 text-darkBlueText shadow-md mb-6 dark:text-white dark:bg-darkBlueElements lg:py-5 bg-white dark:to-darkBlueElements">
       <Link to="/" className="font-extrabold">
         Where in the world?
       </Link>

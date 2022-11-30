@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Root, { loader as countriesLoader } from "./root";
 import Country, { loader as countryLoader } from "./country";
 import Layout from "../components/layout";
-import Header from "../components/header";
 
 export const router = createBrowserRouter([
   {

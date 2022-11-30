@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 type Theme = "dark" | "light";
 
@@ -8,7 +8,7 @@ const useSetTheme = () => {
   );
   const colorTheme: Theme = theme === "dark" ? "light" : "dark";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const html = window.document.documentElement;
     html.classList.remove(colorTheme);
     html.classList.add(theme);

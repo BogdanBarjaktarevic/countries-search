@@ -1,7 +1,8 @@
 import { IonIcon } from "@ionic/react";
 import { searchOutline } from "ionicons/icons";
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import { debounce } from "lodash";
 
 const SearchCountry = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,15 +13,18 @@ const SearchCountry = () => {
       countryQuery;
   }, [countryQuery]);
 
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const isFirstSearch = countryQuery == null;
+  const handleOnChange = useCallback(
+    debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
+      const isFirstSearch = countryQuery == null;
 
-    setSearchParams(
-      { country: event.target.value },
-      { replace: !isFirstSearch }
-    );
-  };
+      setSearchParams(
+        { country: event.target.value },
+        { replace: !isFirstSearch }
+      );
+    }, 500),
+    []
+  );
 
   return (
     <form>
