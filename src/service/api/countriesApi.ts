@@ -25,8 +25,7 @@ export const getCountries = async (
       await countriesApi.get(url);
     return response.data;
   } catch (error: any) {
-    console.error(error);
-    return [];
+    throw new Error();
   }
 };
 

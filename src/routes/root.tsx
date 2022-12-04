@@ -1,4 +1,4 @@
-import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import { LoaderFunctionArgs, Outlet, useLoaderData } from "react-router-dom";
 import Countries from "../components/countries";
 import FilterCountry from "../components/filterCountry";
 import SearchCountry from "../components/searchCountry";
@@ -27,7 +27,7 @@ const Root = () => {
       </div>
       <div>
         <main className="px-8 flex flex-col gap-12 mt-6 lg:px-5 lg:grid lg:grid-cols-4">
-          <Countries />
+          <Outlet />
         </main>
       </div>
     </>
