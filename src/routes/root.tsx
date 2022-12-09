@@ -1,18 +1,6 @@
-import { LoaderFunctionArgs, Outlet, useLoaderData } from "react-router-dom";
-import Countries from "../components/countries";
+import { Outlet } from "react-router-dom";
 import FilterCountry from "../components/filterCountry";
 import SearchCountry from "../components/searchCountry";
-import { getCountries } from "../service/api/countriesApi";
-
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const url = new URL(request.url);
-  const countryQuery = url.searchParams.get("country") || "";
-  const filterQuery = url.searchParams.get("filter") || "";
-
-  const countries = await getCountries(countryQuery, filterQuery);
-
-  return countries;
-};
 
 const Root = () => {
   return (

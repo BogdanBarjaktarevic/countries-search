@@ -1,15 +1,25 @@
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Root, { loader as countriesLoader } from "./root";
-import Country, { loader as countryLoader } from "./country";
-import Layout from "../components/layout";
-import Countries from "../components/countries";
-import CountriesErrorElement from "../components/countriesErrorElement";
-import NotFound from "./notFound";
+import { countriesLoader } from "./loaders/countriesLoader";
+import { countryLoader } from "./loaders/countryLoader";
+
+const Layout = React.lazy(() => import("../components/layout"));
+const Root = React.lazy(() => import("./root"));
+const Countries = React.lazy(() => import("../components/countries"));
+const Country = React.lazy(() => import("./country"));
+const NotFound = React.lazy(() => import("./notFound"));
+const CountriesErrorElement = React.lazy(
+  () => import("../components/countriesErrorElement")
+);
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Layout />
+      </React.Suspense>
+    ),
     errorElement: <div>Something went wrong</div>,
     children: [
       {
@@ -29,13 +39,21 @@ export const router = createBrowserRouter([
   },
   {
     path: "/countries/:countryId",
-    element: <Layout />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Layout />
+      </React.Suspense>
+    ),
     errorElement: <div>Something went wrong</div>,
     children: [{ index: true, element: <Country />, loader: countryLoader }],
   },
   {
     path: "*",
-    element: <Layout />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Layout />
+      </React.Suspense>
+    ),
     children: [{ path: "*", index: true, element: <NotFound /> }],
   },
 ]);

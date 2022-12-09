@@ -1,36 +1,12 @@
 import { IonIcon } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
-import {
-  Link,
-  LoaderFunctionArgs,
-  useLoaderData,
-  useNavigate,
-} from "react-router-dom";
-import { getBorderCountries, getCountry } from "../service/api/countriesApi";
-import {
-  CountryLoader,
-  StructuredBorderCountriesModel,
-} from "../types/countries.types";
-import {
-  structureBorderCountriesData,
-  structureCountryData,
-} from "../utils/structureCountryData";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { CountryLoader } from "../types/countries.types";
 
 interface StatsProps {
   name: string;
   children: React.ReactNode | React.ReactNode[];
 }
-
-export const loader = async ({ params }: LoaderFunctionArgs) => {
-  let borderCountries: StructuredBorderCountriesModel[] = [];
-  const data = await getCountry(params.countryId);
-  const country = structureCountryData(data);
-  if (country.borders) {
-    const borderCountriesData = await getBorderCountries(country.borders);
-    borderCountries = structureBorderCountriesData(borderCountriesData);
-  }
-  return { country, borderCountries };
-};
 
 const Stats = ({ name, children }: StatsProps) => (
   <p className="font-light">
@@ -54,7 +30,12 @@ const Country = () => {
       </div>
       <article className="lg:flex gap-44">
         <div className="lg:flex-1">
-          <img src={country.flag} alt="country flag" />
+          <img
+            src={country.flag}
+            alt={country.name}
+            width="100%"
+            height="100%"
+          />
         </div>
 
         <div className="lg:flex-1">
