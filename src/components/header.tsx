@@ -1,7 +1,7 @@
-import { IonIcon } from "@ionic/react";
 import { moonOutline, moon } from "ionicons/icons";
 import { Link } from "react-router-dom";
 import useSetTheme from "../hooks/useSetTheme";
+import Icon from "./icon";
 
 const Header = () => {
   const { handleSetTheme, theme } = useSetTheme();
@@ -12,7 +12,7 @@ const Header = () => {
         Where in the world?
       </Link>
       <div className="flex items-center">
-        <IonIcon
+        <Icon
           icon={theme === "dark" ? moon : moonOutline}
           onClick={handleSetTheme}
           size="small"

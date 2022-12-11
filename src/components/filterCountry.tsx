@@ -1,8 +1,8 @@
-import { IonIcon } from "@ionic/react";
 import { chevronDown } from "ionicons/icons";
 import { useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useOnClickOutside } from "../hooks/useOnClickOutside";
+import Icon from "./icon";
 
 const filterOptions = [
   { label: "All", filter: "all" },
@@ -43,7 +43,7 @@ const FilterCountry = () => {
         <span className="capitalize">
           {filterParam ? filterParam : "Filter by Region"}
         </span>
-        <IonIcon icon={chevronDown} size="small" className="ml-6" />
+        <Icon icon={chevronDown} size="small" className="ml-6" />
       </div>
       {showDropdown && (
         <div className="bg-white shadow-md rounded-md absolute w-full mt-2  dark:bg-darkBlueElements dark:text-white">

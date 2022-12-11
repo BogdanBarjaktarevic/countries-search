@@ -1,8 +1,8 @@
-import { IonIcon } from "@ionic/react";
 import { searchOutline } from "ionicons/icons";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { debounce } from "lodash";
+import Icon from "./icon";
 
 const SearchCountry = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,7 +30,7 @@ const SearchCountry = () => {
     <form>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <IonIcon
+          <Icon
             icon={searchOutline}
             size="small"
             className="text-darkGray dark:text-white"

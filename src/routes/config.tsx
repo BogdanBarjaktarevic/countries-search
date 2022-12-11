@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense fallback={<div className="min-h-screen">Loading...</div>}>
         <Layout />
       </React.Suspense>
     ),

@@ -1,6 +1,6 @@
-import { IonIcon } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import Icon from "../components/icon";
 import { CountryLoader } from "../types/countries.types";
 
 interface StatsProps {
@@ -25,7 +25,7 @@ const Country = () => {
         className="flex items-center gap-2 py-1.5 px-6 shadow-md mb-20 mt-12 max-w-max bg-white dark:bg-darkBlueElements dark:lg:hover:bg-darkBlueBackground cursor-pointer"
         onClick={() => navigate(-1)}
       >
-        <IonIcon icon={arrowBackOutline} size="small" />
+        <Icon icon={arrowBackOutline} size="small" />
         <button>Back</button>
       </div>
       <article className="lg:flex gap-44">
